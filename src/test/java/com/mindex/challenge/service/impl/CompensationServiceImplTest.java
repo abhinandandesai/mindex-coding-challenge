@@ -38,11 +38,11 @@ public class CompensationServiceImplTest {
     public void setup() {
         employee = new Employee();
 
-        employee.setEmployeeId("01abc234-frt9-5294-923a-zyx12341qwer");
-        employee.setFirstName("Will");
-        employee.setLastName("Smith");
-        employee.setDepartment("Computer Science");
-        employee.setPosition("Developer");
+        employee.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
+        employee.setFirstName("Paul");
+        employee.setLastName("McCartney");
+        employee.setDepartment("Engineering");
+        employee.setPosition("Developer I");
 
         compensation = new Compensation(employee, 100000.0, LocalDate.now());
     }
@@ -57,7 +57,7 @@ public class CompensationServiceImplTest {
     @Test
     public void testRead() {
         when(compensationRepository.employeeSearch_ID(anyString())).thenReturn(compensation);
-        Compensation compensationRes = compensationService.read("01abc234-frt9-5294-923a-zyx12341qwer");
+        Compensation compensationRes = compensationService.read("b7839309-3348-463b-a7e3-5de1c168beb3");
         assertNotNull(compensationRes.getEmployee().getEmployeeId());
         assertEmployeeEquivalence(employee, compensationRes.getEmployee());
     }
