@@ -42,18 +42,18 @@ public class EmployeeControllerTest {
     public void setup() {
         employee = new Employee();
 
-        employee.setEmployeeId("01abc234-frt9-5294-923a-zyx12341qwer");
-        employee.setFirstName("Will");
-        employee.setLastName("Smith");
-        employee.setDepartment("Computer Science");
-        employee.setPosition("Developer");
+        employee.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
+        employee.setFirstName("Paul");
+        employee.setLastName("McCartney");
+        employee.setDepartment("Engineering");
+        employee.setPosition("Developer I");
 
         reportingStructure = new ReportingStructure(employee, 2000);
     }
 
     @Test
     public void testGetReportingStructureSuccess() throws Exception {
-        final String link = url + "/01abc234-frt9-5294-923a-zyx12341qwer/reporting-structure";
+        final String link = url + "/b7839309-3348-463b-a7e3-5de1c168beb3/reporting-structure";
 
         when(employeeService.getReportingStructureByEmployeeId(anyString())).thenReturn(reportingStructure);
 
@@ -71,7 +71,7 @@ public class EmployeeControllerTest {
 
     @Test
     public void testGetReportingStructureInvalidPath() throws Exception {
-        final String link = url + "/01abc234-frt9-5294-923a-zyx12341qwer/reportingStructure";
+        final String link = url + "/b7839309-3348-463b-a7e3-5de1c168beb3/reportingStructure";
 
         when(employeeService.getReportingStructureByEmployeeId(anyString())).thenReturn(reportingStructure);
 

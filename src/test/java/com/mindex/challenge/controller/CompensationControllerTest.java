@@ -44,11 +44,11 @@ public class CompensationControllerTest {
     public void setup() {
         employee = new Employee();
 
-        employee.setEmployeeId("01abc234-frt9-5294-923a-zyx12341qwer");
-        employee.setFirstName("Will");
-        employee.setLastName("Smith");
-        employee.setDepartment("Computer Science");
-        employee.setPosition("Developer");
+        employee.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
+        employee.setFirstName("Paul");
+        employee.setLastName("McCartney");
+        employee.setDepartment("Engineering");
+        employee.setPosition("Developer I");
 
         compensation = new Compensation(employee,  130000.0, LocalDate.now());
     }
@@ -57,11 +57,11 @@ public class CompensationControllerTest {
     public void testPostCompensationSuccess() throws Exception {
         final String link = url;
         String exampleEntry = "[{\"employee\": {\n" +
-                "      \"employeeId\" : \"ab111222-2345-3ab4-c3d4-5ef6g789hi00\",\n" +
-                "      \"firstName\" : \"ABC\",\n" +
-                "      \"lastName\" : \"XYZ\",\n" +
+                "      \"employeeId\" : \"62c1084e-6e34-4630-93fd-9153afb65309\",\n" +
+                "      \"firstName\" : \"Pete\",\n" +
+                "      \"lastName\" : \"Best\",\n" +
                 "      \"position\" : \"Developer II\",\n" +
-                "      \"department\" : \"Computer Engineering\"\n" +
+                "      \"department\" : \"Engineering\"\n" +
                 "    },\n" +
                 "    \"salary\": 65000,\n" +
                 "    \"effectiveDate\": \"07/01/2019\"}]";
@@ -84,7 +84,7 @@ public class CompensationControllerTest {
 
     @Test
     public void testGetCompensationSuccess() throws Exception {
-        final String link = url + "/01abc234-frt9-5294-923a-zyx12341qwer";
+        final String link = url + "/62c1084e-6e34-4630-93fd-9153afb65309";
 
         when(compensationService.read(anyString())).thenReturn(compensation);
 
@@ -102,7 +102,7 @@ public class CompensationControllerTest {
 
     @Test
     public void testGetCompensationInvalidPath() throws Exception {
-        final String link = url + "/invalid-path/01abc234-frt9-5294-923a-zyx12341qwer";
+        final String link = url + "/invalid-path/62c1084e-6e34-4630-93fd-9153afb65309";
 
         when(compensationService.read(anyString())).thenReturn(compensation);
 
